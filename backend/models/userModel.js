@@ -8,6 +8,13 @@ const UserSchema = new mongoose.Schema({
     user_age: { type: Number, required: true },
     user_password: { type: String, required: true },
     user_type: { type: String, required: true },
+    list_of_visits: [{
+      timestamp: { 
+        type: String, 
+        required: true, 
+        match: /^\d{4}-\d{2}$/ // Enforces YYYY-MM format
+      },
+    }]
   });
   
 const User = mongoose.model('User', UserSchema);
